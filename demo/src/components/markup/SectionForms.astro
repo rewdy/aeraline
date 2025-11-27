@@ -35,22 +35,28 @@ import Section from "../Section.astro";
           <option value="option3">Option 3</option>
         </select>
       </div>
-      <div>
-        <label>Checkboxes:</label>
+      <fieldset>
+        <legend>Checkboxes</legend>
         <label><input type="checkbox" name="check" value="1" /> Item 1</label>
         <label><input type="checkbox" name="check" value="2" /> Item 2</label>
-      </div>
-      <div>
-        <label>Radio Buttons:</label>
+      </fieldset>
+      <fieldset>
+        <legend>Radio Buttons</legend>
         <label><input type="radio" name="radio" value="1" /> Choice A</label>
         <label><input type="radio" name="radio" value="2" /> Choice B</label>
-      </div>
+      </fieldset>
     </fieldset>
 
     <fieldset>
       <legend>Message</legend>
-      <label for="textarea">Your Message:</label>
-      <textarea id="textarea" name="textarea" rows="4"></textarea>
+      <div>
+        <label for="textarea">Your Message:</label>
+        <textarea id="textarea" name="textarea" rows="4"></textarea>
+      </div>
+      <div>
+        <label for="textarea">Attribution:</label>
+        <textarea id="textarea" name="textarea" rows="4" cols="20"></textarea>
+      </div>
     </fieldset>
 
     <div>

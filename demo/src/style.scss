@@ -6,7 +6,7 @@
   $base-font-size: 20px
 );
 
-@include lib.ratio-typography();
+@include lib.aeraline-typography();
 @include lib.extra-flexbox();
 // @include lib.flexbox-grid();
 

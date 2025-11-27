@@ -1,0 +1,32 @@
+{
+  "name": "@rewdy/aeraline",
+  "module": "index.ts",
+  "type": "module",
+  "main": "dist/style.css",
+  "style": "dist/style.css",
+  "sass": "src/_library.scss",
+  "exports": {
+    ".": {
+      "sass": "./src/_library.scss",
+      "style": "./dist/style.css",
+      "default": "./dist/style.css"
+    },
+    "./scss": "./src/_library.scss",
+    "./css": "./dist/style.css"
+  },
+  "files": [
+    "dist",
+    "src/_library.scss"
+  ],
+  "scripts": {
+    "build": "sass src/style.scss dist/style.min.css --no-source-map --style=compressed && sass src/style.scss dist/style.css --no-source-map",
+    "check": "bun run format:check",
+    "format:check": "prettier --check 'src/**/*.scss'",
+    "format": "prettier --write 'src/**/*.scss'"
+  },
+  "devDependencies": {
+    "prettier": "3.6.2",
+    "sass": "1.94.2"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,5 @@
+@use "library" as lib;
+
+// Apply all styles
+@include lib.ratio-typography;
+@include lib.extra-flexbox;

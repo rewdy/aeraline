@@ -1,0 +1,41 @@
+---
+interface Props {
+  label?: string;
+  subheading?: string;
+}
+
+const { label, subheading } = Astro.props;
+---
+
+<section class="styleguide-section">
+  {
+    label && (
+      <div>
+        <h2 class="styleguide-section-label">{label}</h2>
+      </div>
+    )
+  }
+  {subheading && <p class="styleguide-section-subheading">{subheading}</p>}
+  <slot />
+</section>
+
+<style is:inline>
+  .styleguide-section {
+    padding: 3rem 0;
+  }
+
+  .styleguide-section-label {
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.75rem 1rem;
+    margin-bottom: 2rem;
+    border: 2px solid var(--text-color);
+  }
+
+  .styleguide-section-subheading {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+  }
+</style>

@@ -1,0 +1,59 @@
+---
+import { SITE } from "../constants";
+
+import "../style.scss";
+
+interface Props {
+  title?: string;
+  includeHome?: boolean;
+}
+
+const { title, includeHome = false } = Astro.props;
+
+const pageTitle = title ? `${title} | ${SITE.title}` : SITE.title;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="liner">
+        <h1>{title ?? SITE.title}</h1>
+        {
+          includeHome ? (
+            <p>
+              <a href="/" class="button button--secondary">
+                Home
+              </a>
+            </p>
+          ) : null
+        }
+      </div>
+    </header>
+    <main>
+      <div class="liner">
+        <slot />
+      </div>
+    </main>
+  </body>
+</html>
+
+<style>
+  .liner {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+</style>

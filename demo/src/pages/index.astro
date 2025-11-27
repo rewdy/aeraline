@@ -1,0 +1,43 @@
+---
+import { SITE } from "../constants";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <blockquote>{SITE.description}</blockquote>
+  <p>
+    This library is not meant to be an all-in-one solution, but rather a
+    sensible starting point for new projects.
+  </p>
+  <h2>Principles</h2>
+  <p>
+    <strong>One:</strong>
+    This library is meant to fully embrace <em>cascading style sheets</em> instead
+    of giving you a way around them. It styles semantic elements in a simple, consistent
+    way, setting you up to be able to extend and/or override the defaults as your
+    design requires.
+  </p>
+  <p>
+    <strong>Two:</strong> The fundamental philosophy of this project is to use ratios
+    to setup consistent sizing and spacing. The default is to use the <em
+      >golden ratio</em
+    >, but through config you can set to other classic ratios.
+  </p>
+  <p>
+    Importantly, as is the case with design, a system has been created then
+    meaningful deviations have been embraced to fine-tune it to look and feel
+    correct. Thus, you may notice that we don't 100% adhere to the selected
+    ratio, but default to doing so.
+  </p>
+  <hr />
+  <p><a href="/demo" class="button">See demo</a></p>
+  <hr />
+  <h2>Features</h2>
+  <p>Limited utility classes for ease of use:</p>
+  <ul>
+    <li>
+      <code>.h<em>n</em></code> classes to mimic headings but without the semantic
+      meaning.
+    </li>
+  </ul>
+</Layout>

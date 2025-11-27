@@ -1,0 +1,62 @@
+---
+
+---
+
+<div>
+  <p>Set the ratio:</p>
+  <p>
+    <a href="#" class="ratio-setter" data-set-ratio="1.618"
+      >Golden Ratio: 1.618</a
+    > |
+    <a href="#" class="ratio-setter" data-set-ratio="1.414"
+      >Square Root of 2: 1.414</a
+    > |
+    <a href="#" class="ratio-setter" data-set-ratio="1.333"
+      >Perfect Fourth: 1.333</a
+    > |
+    <a href="#" class="ratio-setter" data-set-ratio="1.25">Major Third: 1.25</a>
+    |
+    <a href="#" class="ratio-setter" data-set-ratio="1.2">Minor Third: 1.2</a> |
+    <a href="#" class="ratio-setter" data-set-ratio="1.125"
+      >Major Second: 1.125</a
+    > |
+    <a href="#" class="ratio-setter" data-set-ratio="1.067"
+      >Minor Second: 1.067</a
+    >
+  </p>
+</div>
+
+<script>
+  function setBaseRatio(ratio: string) {
+    document.documentElement.style.setProperty("--base-ratio", ratio);
+    window.localStorage.setItem("base-ratio", ratio);
+    document.querySelectorAll("[data-set-ratio]").forEach((el) => {
+      el.classList.toggle(
+        "active",
+        el.getAttribute("data-set-ratio") === ratio
+      );
+    });
+  }
+
+  document.querySelectorAll("[data-set-ratio]").forEach((el) => {
+    el.addEventListener("click", (event) => {
+      event.preventDefault();
+      const ratio = el.getAttribute("data-set-ratio");
+      if (typeof ratio !== "string") return;
+
+      setBaseRatio(ratio);
+    });
+  });
+
+  const preSetRatio = window.localStorage.getItem("base-ratio");
+  if (preSetRatio) {
+    setBaseRatio(preSetRatio);
+  }
+</script>
+
+<style>
+  .ratio-setter.active {
+    font-weight: bold;
+    color: inherit;
+  }
+</style>

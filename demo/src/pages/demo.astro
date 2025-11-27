@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionHeadings from "../components/markup/SectionHeadings.astro";
+import SectionHeadingsExtended from "../components/markup/SectionHeadingsExtended.astro";
+import SectionSemantic from "../components/markup/SectionSemantic.astro";
+import SectionTables from "../components/markup/SectionTables.astro";
+import SectionForms from "../components/markup/SectionForms.astro";
+import SectionButtons from "../components/markup/SectionButtons.astro";
+import SectionImages from "../components/markup/SectionImages.astro";
+import ScaleSetter from "../components/ScaleSetter.astro";
+---
+
+<Layout title="Demo" includeHome={true}>
+  <ScaleSetter />
+  <SectionHeadings />
+  <SectionHeadingsExtended />
+  <SectionSemantic />
+  <SectionTables />
+  <SectionForms />
+  <SectionButtons />
+  <SectionImages />
+</Layout>

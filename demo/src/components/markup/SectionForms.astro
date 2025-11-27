@@ -1,0 +1,61 @@
+---
+import Section from "../Section.astro";
+---
+
+<Section label="Forms">
+  <form onsubmit="event.preventDefault()">
+    <fieldset>
+      <legend>Personal Information</legend>
+      <div>
+        <label for="text">Text Input:</label>
+        <input type="text" id="text" name="text" placeholder="John Doe" />
+      </div>
+      <div>
+        <label for="email">Email Input:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="john@example.com"
+        />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Preferences</legend>
+      <div>
+        <label for="select">Select One:</label>
+        <select id="select" name="select">
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+        </select>
+      </div>
+      <div>
+        <label>Checkboxes:</label>
+        <label><input type="checkbox" name="check" value="1" /> Item 1</label>
+        <label><input type="checkbox" name="check" value="2" /> Item 2</label>
+      </div>
+      <div>
+        <label>Radio Buttons:</label>
+        <label><input type="radio" name="radio" value="1" /> Choice A</label>
+        <label><input type="radio" name="radio" value="2" /> Choice B</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Message</legend>
+      <label for="textarea">Your Message:</label>
+      <textarea id="textarea" name="textarea" rows="4"></textarea>
+    </fieldset>
+
+    <div>
+      <button type="submit">Submit Form</button>
+      <button type="reset">Reset</button>
+    </div>
+  </form>
+</Section>

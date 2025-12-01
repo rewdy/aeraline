@@ -1,0 +1,8 @@
+name: PR
+
+on:
+  pull_request:
+
+jobs:
+  check_and_build:
+    uses: ./.github/workflows/_check-and-build.yml

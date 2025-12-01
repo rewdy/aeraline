@@ -3,7 +3,7 @@ import Section from "../Section.astro";
 ---
 
 <Section label="Forms">
-  <form onsubmit="event.preventDefault()">
+  <form id="demo-form">
     <fieldset>
       <legend>Personal Information</legend>
       <div>
@@ -65,3 +65,13 @@ import Section from "../Section.astro";
     </div>
   </form>
 </Section>
+
+<script>
+  const form = document.getElementById("demo-form");
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Form fake submitted!");
+    });
+  }
+</script>

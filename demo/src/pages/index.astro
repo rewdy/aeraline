@@ -30,7 +30,11 @@ import Layout from "../layouts/Layout.astro";
     ratio, but default to doing so.
   </p>
   <hr />
-  <p><a href="/demo" class="button">See demo</a></p>
+  <p>
+    <a href={`${import.meta.env.BASE_URL}/demo`} class="button"
+      >See demo &rarr;</a
+    >
+  </p>
   <hr />
   <h2>Features</h2>
   <p>Limited utility classes for ease of use:</p>

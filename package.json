@@ -3,10 +3,14 @@
   "version": "0.0.1",
   "scripts": {
     "build": "bun run --filter '*' build",
-    "dev": "bun run --filter '*demo' dev"
+    "check": "bun run --filter '*' check",
+    "dev": "bun run --filter '*demo' dev",
+    "format": "bun run --filter '*' format"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "prettier": "3.7.3",
+    "prettier-plugin-astro": "0.14.1"
   },
   "workspaces": [
     "lib",

@@ -3,13 +3,20 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "check": "astro check && bun format:check",
+    "dev": "astro dev",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^5.16.0",
-    "@rewdy/aeraline": "workspace:*"
+    "@rewdy/aeraline": "workspace:*",
+    "astro": "^5.16.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.6",
+    "kleur": "4.1.5",
+    "typescript": "5.9.3"
   }
 }

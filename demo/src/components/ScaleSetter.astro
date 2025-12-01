@@ -33,7 +33,7 @@
     document.querySelectorAll("[data-set-ratio]").forEach((el) => {
       el.classList.toggle(
         "active",
-        el.getAttribute("data-set-ratio") === ratio
+        el.getAttribute("data-set-ratio") === ratio,
       );
     });
   }

@@ -30,14 +30,59 @@ import Layout from "../layouts/Layout.astro";
     ratio, but default to doing so.
   </p>
   <hr />
-  <p><a href="/demo" class="button">See demo</a></p>
+  <p>
+    <a href={`${import.meta.env.BASE_URL}/demo`} class="button"
+      >See demo &rarr;</a
+    >
+  </p>
   <hr />
   <h2>Features</h2>
-  <p>Limited utility classes for ease of use:</p>
   <ul>
     <li>
-      <code>.h<em>n</em></code> classes to mimic headings but without the semantic
-      meaning.
+      <strong>Zero JavaScript</strong> — Pure CSS, no runtime overhead.
+    </li>
+    <li>
+      <strong>Ratio-based scale</strong> — Typography, spacing, and line-heights all
+      derived from a single configurable ratio (default: golden ratio φ ≈ 1.618).
+    </li>
+    <li>
+      <strong>Automatic dark mode</strong> — Respects <code
+        >prefers-color-scheme</code
+      >
+      out of the box.
+    </li>
+    <li>
+      <strong>CSS custom properties</strong> — Easy theming and runtime customization
+      via variables like <code>--font-size-lg</code> and <code
+        >--spacing-md</code
+      >.
+    </li>
+    <li>
+      <strong>Semantic element styling</strong> — Sensible defaults for headings,
+      paragraphs, lists, tables, blockquotes, code, forms, and more.
+    </li>
+    <li>
+      <strong>Modular Sass architecture</strong> — Import only what you need via mixins
+      like <code>aeraline-base</code>, <code>aeraline-headings</code>, or use <code
+        >aeraline</code
+      > for everything.
+    </li>
+    <li>
+      <strong>12-column flexbox grid</strong> (Optional, opt-in) — Responsive grid
+      with breakpoints at <code>sm</code>, <code>md</code>, and <code>lg</code>.
+    </li>
+    <li>
+      <strong>Minimal utility classes</strong> — Spacing (<code>.mt-md</code>, <code
+        >.p-lg</code
+      >), typography (<code>.text-xl</code>, <code>.h3</code>), and flexbox
+      helpers without the bloat.
+    </li>
+    <li>
+      <strong>Form &amp; button styling</strong> — Inputs, selects, textareas, and
+      buttons styled consistently.
+    </li>
+    <li>
+      <strong>Lightweight reset</strong> — Clean slate without nuking useful defaults.
     </li>
   </ul>
 </Layout>

@@ -6,9 +6,9 @@
   $base-font-size: 20px
 );
 
-@include lib.aeraline-typography();
-@include lib.extra-flexbox();
-// @include lib.flexbox-grid();
+@include lib.aeraline();
+@include lib.aeraline-flexbox-utilities();
+// @include lib.aeraline-flexbox-grid();
 
 body {
   padding: 2rem;

@@ -58,7 +58,7 @@ $theme-light: (
   color-warning: rgba(255, 213, 0, 1),
   color-highlight: rgba(255, 213, 0, 0.8),
   background-selection: color.change($accent-base, $alpha: 0.3),
-  ) !default;
+) !default;
 
 $accent-dark: color.change($accent-base, $lightness: 65%) !default;
 
@@ -75,7 +75,7 @@ $theme-dark: (
   color-warning: rgba(255, 213, 0, 1),
   color-highlight: rgba(255, 213, 0, 0.8),
   background-selection: color.change($accent-dark, $alpha: 0.3),
-  ) !default;
+) !default;
 
 // ========================================
 // CSS Custom Properties
@@ -98,107 +98,132 @@ $theme-dark: (
     // Calculated Typography Scale
     // ========================================
 
-    --font-size-xs: max(var(--minimum-font-size),
-        calc(var(--font-base-size) / (var(--base-ratio) * var(--base-ratio)))
+    --font-size-xs: max(
+      var(--minimum-font-size),
+      calc(var(--font-base-size) / (var(--base-ratio) * var(--base-ratio)))
     );
-  --font-size-sm: max(var(--minimum-font-size),
-      calc(var(--font-base-size) / var(--base-ratio)));
-  --font-size-base: var(--font-base-size);
-  --font-size-md: calc(var(--font-base-size) * var(--base-ratio));
-  --font-size-lg: calc(var(--font-base-size) * (var(--base-ratio) * var(--base-ratio)));
-  --font-size-xl: calc(var(--font-base-size) * (var(--base-ratio) * var(--base-ratio) * var(--base-ratio)));
-  --font-size-xxl: calc(var(--font-base-size) * (var(--base-ratio) * var(--base-ratio) * var(--base-ratio) * var(--base-ratio)));
+    --font-size-sm: max(
+      var(--minimum-font-size),
+      calc(var(--font-base-size) / var(--base-ratio))
+    );
+    --font-size-base: var(--font-base-size);
+    --font-size-md: calc(var(--font-base-size) * var(--base-ratio));
+    --font-size-lg: calc(
+      var(--font-base-size) * (var(--base-ratio) * var(--base-ratio))
+    );
+    --font-size-xl: calc(
+      var(--font-base-size) *
+        (var(--base-ratio) * var(--base-ratio) * var(--base-ratio))
+    );
+    --font-size-xxl: calc(
+      var(--font-base-size) *
+        (
+          var(--base-ratio) * var(--base-ratio) * var(--base-ratio) *
+            var(--base-ratio)
+        )
+    );
 
-  // This is a deviation from the pure ratios
-  --font-size-code: max(var(--minimum-font-size),
-      calc(var(--font-base-size) * 0.8));
+    // This is a deviation from the pure ratios
+    --font-size-code: max(
+      var(--minimum-font-size),
+      calc(var(--font-base-size) * 0.8)
+    );
 
-  // ========================================
-  // Spacing Scale (margins, padding, gaps)
-  // ========================================
+    // ========================================
+    // Spacing Scale (margins, padding, gaps)
+    // ========================================
 
-  --spacing-xs: calc(var(--base-spacing) / (var(--base-ratio) * var(--base-ratio)));
-  --spacing-sm: calc(var(--base-spacing) / var(--base-ratio));
-  --spacing-base: var(--base-spacing);
-  --spacing-md: calc(var(--base-spacing) * var(--base-ratio));
-  --spacing-lg: calc(var(--base-spacing) * (var(--base-ratio) * var(--base-ratio)));
-  --spacing-xl: calc(var(--base-spacing) * (var(--base-ratio) * var(--base-ratio) * var(--base-ratio)));
-  --spacing-xxl: calc(var(--base-spacing) * (var(--base-ratio) * var(--base-ratio) * var(--base-ratio) * var(--base-ratio)));
+    --spacing-xs: calc(
+      var(--base-spacing) / (var(--base-ratio) * var(--base-ratio))
+    );
+    --spacing-sm: calc(var(--base-spacing) / var(--base-ratio));
+    --spacing-base: var(--base-spacing);
+    --spacing-md: calc(var(--base-spacing) * var(--base-ratio));
+    --spacing-lg: calc(
+      var(--base-spacing) * (var(--base-ratio) * var(--base-ratio))
+    );
+    --spacing-xl: calc(
+      var(--base-spacing) *
+        (var(--base-ratio) * var(--base-ratio) * var(--base-ratio))
+    );
+    --spacing-xxl: calc(
+      var(--base-spacing) *
+        (
+          var(--base-ratio) * var(--base-ratio) * var(--base-ratio) *
+            var(--base-ratio)
+        )
+    );
 
-  --border-radius-sm: calc(var(--spacing-xs) / 2);
-  --border-radius-base: calc(var(--spacing-sm) / 2);
-  --border-radius-lg: calc(var(--spacing-md) / 2);
+    --border-radius-sm: calc(var(--spacing-xs) / 2);
+    --border-radius-base: calc(var(--spacing-sm) / 2);
+    --border-radius-lg: calc(var(--spacing-md) / 2);
 
-  // ========================================
-  // Line Height Scale
-  // ========================================
+    // ========================================
+    // Line Height Scale
+    // ========================================
 
-  --line-height-tight: 1;
-  --line-height-base: var(--base-ratio);
-  --line-height-loose: calc(var(--base-ratio) * var(--base-ratio));
+    --line-height-tight: 1;
+    --line-height-base: var(--base-ratio);
+    --line-height-loose: calc(var(--base-ratio) * var(--base-ratio));
 
-  // ========================================
-  // Color and Font Defaults
-  // ========================================
+    // ========================================
+    // Color and Font Defaults
+    // ========================================
 
-  // Default text
-  --font-family: #{$font-family-base};
-  --font-weight-normal: #{$font-weight-normal};
-  --font-weight-bold: #{$font-weight-bold};
+    // Default text
+    --font-family: #{$font-family-base};
+    --font-weight-normal: #{$font-weight-normal};
+    --font-weight-bold: #{$font-weight-bold};
 
-  --font-family-heading: #{$font-family-heading};
-  --font-weight-heading-bold: #{$font-weight-heading-bold};
+    --font-family-heading: #{$font-family-heading};
+    --font-weight-heading-bold: #{$font-weight-heading-bold};
 
-  --font-family-monospace: #{$font-family-monospace};
+    --font-family-monospace: #{$font-family-monospace};
 
-  // Largely "dumb" colors. You should override these per your project's needs.
-  --text-color: #{map.get($theme-light, text-color)};
-  --text-color-inverted: #{map.get($theme-light, text-color-inverted)};
-  --text-color-muted: #{map.get($theme-light, text-color-muted)};
+    // Largely "dumb" colors. You should override these per your project's needs.
+    --text-color: #{map.get($theme-light, text-color)};
+    --text-color-inverted: #{map.get($theme-light, text-color-inverted)};
+    --text-color-muted: #{map.get($theme-light, text-color-muted)};
 
-  --accent-color: #{map.get($theme-light, accent-color)};
-  --accent-inverse: #{map.get($theme-light, accent-inverse)};
-  --accent-hover: #{map.get($theme-light, accent-hover)};
-  --color-success: #{map.get($theme-light, color-success)};
-  --color-danger: #{map.get($theme-light, color-danger)};
-  --color-warning: #{map.get($theme-light, color-warning)};
-  --color-info: #{map.get($theme-light, color-info)};
+    --accent-color: #{map.get($theme-light, accent-color)};
+    --accent-inverse: #{map.get($theme-light, accent-inverse)};
+    --accent-hover: #{map.get($theme-light, accent-hover)};
+    --color-success: #{map.get($theme-light, color-success)};
+    --color-danger: #{map.get($theme-light, color-danger)};
+    --color-warning: #{map.get($theme-light, color-warning)};
+    --color-info: #{map.get($theme-light, color-info)};
 
-  --background-color: #{map.get($theme-light, background-color)};
-  --background-highlight: #{map.get($theme-light, color-highlight)};
-  --background-screen: #{color.change(
- map.get($theme-light, text-color),
-  $alpha: 0.08)
-}
+    --background-color: #{map.get($theme-light, background-color)};
+    --background-highlight: #{map.get($theme-light, color-highlight)};
+    --background-screen: #{color.change(
+        map.get($theme-light, text-color),
+        $alpha: 0.08
+      )};
+    --background-selection: #{map.get($theme-light, background-selection)};
 
-;
---background-selection: #{map.get($theme-light, background-selection)};
+    // Dark mode colors
+    @media (prefers-color-scheme: dark) {
+      --text-color: #{map.get($theme-dark, text-color)};
+      --text-color-inverted: #{map.get($theme-dark, text-color-inverted)};
+      --text-color-muted: #{map.get($theme-dark, text-color-muted)};
 
-// Dark mode colors
-@media (prefers-color-scheme: dark) {
-  --text-color: #{map.get($theme-dark, text-color)};
-  --text-color-inverted: #{map.get($theme-dark, text-color-inverted)};
-  --text-color-muted: #{map.get($theme-dark, text-color-muted)};
+      --accent-color: #{map.get($theme-dark, accent-color)};
+      --accent-inverse: #{map.get($theme-dark, accent-inverse)};
+      --accent-hover: #{map.get($theme-dark, accent-hover)};
+      --color-success: #{map.get($theme-dark, color-success)};
+      --color-danger: #{map.get($theme-dark, color-danger)};
+      --color-warning: #{map.get($theme-dark, color-warning)};
+      --color-info: #{map.get($theme-dark, color-info)};
 
-  --accent-color: #{map.get($theme-dark, accent-color)};
-  --accent-inverse: #{map.get($theme-dark, accent-inverse)};
-  --accent-hover: #{map.get($theme-dark, accent-hover)};
-  --color-success: #{map.get($theme-dark, color-success)};
-  --color-danger: #{map.get($theme-dark, color-danger)};
-  --color-warning: #{map.get($theme-dark, color-warning)};
-  --color-info: #{map.get($theme-dark, color-info)};
-
-  --background-color: #{map.get($theme-dark, background-color)};
-  --background-highlight: #{map.get($theme-dark, color-highlight)};
-  --background-screen: #{color.change(
- map.get($theme-dark, text-color),
-  $alpha: 0.08)
-}
-
-;
---background-selection: #{map.get($theme-dark, background-selection)};
-}
-}
+      --background-color: #{map.get($theme-dark, background-color)};
+      --background-highlight: #{map.get($theme-dark, color-highlight)};
+      --background-screen: #{color.change(
+          map.get($theme-dark, text-color),
+          $alpha: 0.08
+        )};
+      --background-selection: #{map.get($theme-dark, background-selection)};
+    }
+  }
 }
 
 // ========================================
@@ -500,7 +525,6 @@ $theme-dark: (
     }
 
     tfoot {
-
       th,
       td {
         border-top: 2px solid var(--text-color-muted);
@@ -513,7 +537,6 @@ $theme-dark: (
 
     &.lined {
       tbody {
-
         th,
         td {
           border-bottom: 1px solid var(--text-color-muted);
@@ -684,13 +707,11 @@ $theme-dark: (
   }
 }
 
-
 // ========================================
 // Utility Classes
 // ========================================
 
 @mixin aeraline-utilities {
-
   // Font size utilities
   .text-xs {
     font-size: var(--font-size-xs);
@@ -824,10 +845,11 @@ $theme-dark: (
 // ========================================
 
 /// Apply all golden ratio typography styles at once
-@mixin aeraline-typography {
+@mixin aeraline {
   @include aeraline-base;
   @include aeraline-headings;
   @include aeraline-semantic;
   @include aeraline-form;
+  @include aeraline-buttons;
   @include aeraline-utilities;
 }

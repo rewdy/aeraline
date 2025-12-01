@@ -31,7 +31,7 @@ $flexboxgrid-max-width: 1200px !default;
  * Flexbox Grid
  * A responsive flexbox grid system.
  */
-@mixin flexbox-grid(
+@mixin aeraline-flexbox-grid(
   $grid-columns: $flexboxgrid-grid-columns,
   $gutter-width: $flexboxgrid-gutter-width,
   $outer-margin: $flexboxgrid-outer-margin,

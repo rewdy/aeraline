@@ -1,5 +1,31 @@
 @use "library" as lib;
 
-// Apply all styles
-@include lib.ratio-typography;
-@include lib.extra-flexbox;
+// Applies all aeraline styles
+@include lib.aeraline;
+
+// Example of only including specific parts
+// This includes css vars and other essentials. You will always need this
+// @include lib.aeraline-base;
+//
+// Include just headings
+// @include lib.aeraline-headings;
+//
+// Include just semantic elements (p, ul, ol, blockquote, etc)
+// @include lib.aeraline-semantic;
+//
+// Include form styles
+// @include lib.aeraline-form;
+//
+// Include button styles
+// @include lib.aeraline-buttons;
+//
+// Include class utilities (margin, padding, etc)
+// @include lib.aeraline-utilities;
+
+// Non-default extra. These are not included by lib.aeraline. Opt-in only.
+//
+// Flexbox utility classes
+// @include lib.aeraline-flexbox-utilities();
+//
+// Flexbox grid system
+// @include lib.aeraline-flexbox-grid;

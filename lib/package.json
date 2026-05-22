@@ -1,8 +1,10 @@
 {
   "name": "@rewdy/aeraline",
+  "version": "0.1.0",
+  "description": "A lightweight, golden ratio-based CSS typography and layout library built with Sass.",
   "module": "index.ts",
   "type": "module",
-  "main": "dist/style.css",
+  "main": "dist/style.css", 
   "style": "dist/style.css",
   "sass": "src/_library.scss",
   "exports": {
@@ -16,7 +18,7 @@
   },
   "files": [
     "dist",
-    "src/_library.scss"
+    "src"
   ],
   "scripts": {
     "build": "sass src/style.scss dist/style.min.css --no-source-map --style=compressed && sass src/style.scss dist/style.css --no-source-map",
@@ -26,6 +28,13 @@
   },
   "devDependencies": {
     "sass": "1.94.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rewdy/aeraline"
   },
   "license": "MIT"
 }

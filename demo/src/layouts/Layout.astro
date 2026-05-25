@@ -13,6 +13,19 @@ const { title, includeHome = false } = Astro.props;
 const pageTitle = title ? `${title} | ${SITE.title}` : SITE.title;
 const basePath = import.meta.env.BASE_URL || "/";
 const faviconPath = `${basePath}/favicon.svg`;
+
+const navLinks: { href: string; text: string }[] = [
+  { href: `${basePath}/`, text: "Home" },
+  { href: `${basePath}/demo/`, text: "Demo" },
+  {
+    href: `${basePath}/usage/`,
+    text: "Usage",
+  },
+  {
+    href: "https://github.com/rewdy/aeraline",
+    text: "GitHub",
+  },
+];
 ---
 
 <html lang="en">
@@ -32,6 +45,9 @@ const faviconPath = `${basePath}/favicon.svg`;
   <body>
     <header>
       <div class="liner">
+        <nav class="d-flex gap-sm">
+          {navLinks.map(({ href, text }) => <a href={href}>{text}</a>)}
+        </nav>
         <h1>{title ?? SITE.title}</h1>
         {
           includeHome ? (

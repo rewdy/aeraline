@@ -1,0 +1,377 @@
+---
+import { Code } from "astro:components";
+import Layout from "../layouts/Layout.astro";
+
+const basicUsageScss = `@use "@rewdy/aeraline/scss" as lib;
+
+@include lib.aeraline();`;
+
+const basicUsageHtml = `<link rel="stylesheet" href="/node_modules/@rewdy/aeraline/dist/style.css" />`;
+
+const selectiveIncludesScss = `@use "@rewdy/aeraline/scss" as lib;
+
+@include lib.aeraline-base();
+@include lib.aeraline-headings();
+@include lib.aeraline-semantic();
+@include lib.aeraline-form();
+@include lib.aeraline-buttons();
+@include lib.aeraline-utilities();`;
+
+const selectiveExtrasScss = `@use "@rewdy/aeraline/scss" as lib;
+
+@include lib.aeraline-base();
+@include lib.aeraline-headings();
+@include lib.aeraline-semantic();
+@include lib.aeraline-form();
+@include lib.aeraline-buttons();
+@include lib.aeraline-utilities();
+@include lib.aeraline-flexbox-utilities();
+// @include lib.aeraline-flexbox-grid();`;
+
+const customizationScss = `@use "@rewdy/aeraline/scss" as lib with (
+  $base-ratio: 1.5,
+  $base-font-size: 16px,
+  $base-spacing: 1rem,
+  $font-family-base: "Inter", sans-serif,
+  $font-family-heading: "Georgia", serif,
+  $accent-base: #0057ff
+);
+
+@include lib.aeraline();`;
+
+const cssVariablesExample = `:root {
+  --base-ratio: 1.5;
+  --font-base-size: 16px;
+  --accent-color: #0057ff;
+  --background-color: #fcfcfd;
+}
+
+.marketing-page {
+  --accent-color: #ff5c00;
+  --background-screen: rgba(0, 0, 0, 0.05);
+}`;
+
+const semanticExample = `<blockquote>
+  <p>Design systems work best when the defaults are useful.</p>
+  <cite>Aeraline</cite>
+</blockquote>
+
+<table class="striped hover">...</table>`;
+
+const utilitiesExample = `<h3 class="mb-sm">Section title</h3>
+<p class="text-sm leading-loose">Supporting copy...</p>
+<div class="p-lg mt-md">Callout content</div>`;
+
+const gridExample = `<div class="container-fluid">
+  <div class="row middle-md between-md">
+    <div class="col-xs-12 col-md-6">Primary content</div>
+    <div class="col-xs-12 col-md-4 col-md-offset-2">Secondary content</div>
+  </div>
+</div>`;
+---
+
+<Layout title="Usage" includeHome={true}>
+  <nav aria-label="Contents">
+    <ul>
+      <li><a href="#basic-usage">Basic usage</a></li>
+      <li><a href="#selective-includes">Selective includes</a></li>
+      <li><a href="#customization">Customization</a></li>
+      <li><a href="#variables">CSS variables</a></li>
+      <li><a href="#semantic-styles">Semantic styles</a></li>
+      <li><a href="#utilities">Utilities</a></li>
+      <li><a href="#grid">Grid and flexbox</a></li>
+      <li><a href="#recommended-patterns">Recommended patterns</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <p class="attn">
+      Aeraline is Sass-first. <em
+        >The simplest path is to include the master mixin</em
+      >
+      and let the library provide the reset, variables, typography, forms, buttons,
+      and utility classes. If you want more control, you can include only the pieces
+      you need and override the scale at build time or at runtime.
+    </p>
+  </section>
+
+  <section id="basic-usage">
+    <h2>Basic usage</h2>
+    <p>
+      For most projects, start with the package Sass entrypoint and include the
+      master mixin. That gives you the reset, custom properties, base
+      typography, semantic element styles, forms, buttons, and utility classes
+      in one step.
+    </p>
+    <Code code={basicUsageScss} lang="scss" />
+    <p>
+      If you already build the library separately, the package also exposes a
+      compiled stylesheet at <code>@rewdy/aeraline/css</code>.
+    </p>
+    <Code code={basicUsageHtml} lang="html" />
+    <p>
+      Use the compiled CSS when you want a drop-in stylesheet. Use Sass when you
+      want to change the scale, theme, or included modules.
+    </p>
+  </section>
+
+  <section id="selective-includes">
+    <h2>Selective includes</h2>
+    <p>
+      If you do not want the entire system, include the parts you need in order.
+      The base mixin is the foundation because it defines the CSS custom
+      properties and reset.
+    </p>
+    <Code code={selectiveIncludesScss} lang="scss" />
+    <p>The two extra layers are intentionally opt-in:</p>
+    <ul>
+      <li>
+        <code>aeraline-flexbox-utilities()</code> adds display, alignment, gap, and
+        order helpers.
+      </li>
+      <li>
+        <code>aeraline-flexbox-grid()</code> adds the 12-column responsive grid.
+      </li>
+    </ul>
+    <Code code={selectiveExtrasScss} lang="scss" />
+  </section>
+
+  <section id="customization">
+    <h2>Customization</h2>
+    <p>
+      Aeraline is designed to be configured before the styles are emitted.
+      Override Sass variables with the <code>with</code> clause to change the ratio,
+      base size, font stack, or accent color.
+    </p>
+    <Code code={customizationScss} lang="scss" />
+    <p>
+      This is the right place to align the library with your brand. A lower
+      ratio makes the scale denser; a larger ratio makes hierarchy more
+      pronounced.
+    </p>
+  </section>
+
+  <section id="variables">
+    <h2>CSS variables</h2>
+    <p>
+      The base mixin emits a full token set under <code>:root</code>. You can
+      override these at runtime for theming, user preferences, or component
+      scoping.
+    </p>
+    <h3>Scale tokens</h3>
+    <ul>
+      <li>
+        <code>--font-size-xs</code> through <code>--font-size-xxl</code>
+      </li>
+      <li>
+        <code>--spacing-xs</code> through <code>--spacing-xxl</code>
+      </li>
+      <li>
+        <code>--line-height-tight</code>, <code>--line-height-base</code>, <code
+          >--line-height-loose</code
+        >
+      </li>
+      <li>
+        <code>--border-radius-sm</code>, <code>--border-radius-base</code>,
+        <code>--border-radius-lg</code>
+      </li>
+    </ul>
+    <h3>Theme tokens</h3>
+    <ul>
+      <li>
+        <code>--text-color</code>, <code>--text-color-muted</code>, <code
+          >--text-color-inverted</code
+        >
+      </li>
+      <li>
+        <code>--background-color</code>, <code>--background-screen</code>,
+        <code>--background-selection</code>
+      </li>
+      <li>
+        <code>--accent-color</code>, <code>--accent-hover</code>, <code
+          >--accent-inverse</code
+        >
+      </li>
+      <li>
+        <code>--color-success</code>, <code>--color-danger</code>, <code
+          >--color-warning</code
+        >, <code>--color-info</code>
+      </li>
+    </ul>
+    <Code code={cssVariablesExample} lang="css" />
+    <p>
+      Dark mode is automatic through <code>prefers-color-scheme</code>. If you
+      need a custom theme layer, override the variables after the library is
+      loaded.
+    </p>
+  </section>
+
+  <section id="semantic-styles">
+    <h2>Semantic styles</h2>
+    <p>
+      The semantic layer styles common HTML elements directly, so well-formed
+      content looks good without extra classes.
+    </p>
+    <h3>Typography and text</h3>
+    <ul>
+      <li>
+        Headings support both elements and utility classes, such as <code>
+          h2</code
+        > and <code>.h2</code>.
+      </li>
+      <li>
+        Paragraphs, blockquotes, code, preformatted text, citations,
+        abbreviations, and addresses all receive defaults.
+      </li>
+      <li>
+        Inline elements like <code>mark</code>, <code>kbd</code>, <code>s</code
+        >,
+        <code>ins</code>, and <code>del</code> are styled consistently.
+      </li>
+    </ul>
+    <h3>Lists, tables, and details</h3>
+    <ul>
+      <li>Nested lists alternate square, circle, and disc markers.</li>
+      <li>
+        Tables are styled by default and can use <code>.inline</code>, <code>
+          .lined</code
+        >, <code>.striped</code>, or <code>.hover</code>.
+      </li>
+      <li>
+        <code>details</code> and <code>summary</code> are fully supported, including
+        the open state.
+      </li>
+    </ul>
+    <Code code={semanticExample} lang="html" />
+  </section>
+
+  <section id="utilities">
+    <h2>Utilities</h2>
+    <p>
+      Utilities are intentionally small and predictable. They are best used to
+      fine-tune spacing, type size, and line height without adding custom CSS.
+    </p>
+    <h3>Typography</h3>
+    <ul>
+      <li><code>.text-xs</code> through <code>.text-xxl</code></li>
+      <li>
+        <code>.leading-tight</code>, <code>.leading-base</code>, <code
+          >.leading-loose</code
+        >
+      </li>
+    </ul>
+    <h3>Spacing</h3>
+    <ul>
+      <li>
+        <code>.mt-*</code> and <code>.mb-*</code> for top and bottom margin
+      </li>
+      <li><code>.p-*</code> for padding on all sides</li>
+      <li>
+        Spacing steps follow the same ratio scale as the rest of the system
+      </li>
+    </ul>
+    <Code code={utilitiesExample} lang="html" />
+    <p>
+      Buttons also get utility-like treatment through the semantic button and
+      link selectors. Use <code>button</code>, <code>input[type="submit"]</code
+      >,
+      <code>.button</code>, <code>.btn</code>, or <code>[role="button"]</code>.
+    </p>
+  </section>
+
+  <section id="grid">
+    <h2>Grid and flexbox</h2>
+    <p>
+      The flexbox utilities and the grid are optional because they are more
+      opinionated than the core typography layer. Add them only when the project
+      needs layout primitives.
+    </p>
+    <h3>Flexbox utilities</h3>
+    <ul>
+      <li><code>.d-flex</code> and <code>.d-inline-flex</code></li>
+      <li>
+        <code>.flex-row</code>, <code>.flex-column</code>, and reverse variants
+      </li>
+      <li>
+        <code>.justify-content-*</code>, <code>.align-items-*</code>, <code
+          >.align-self-*</code
+        >
+      </li>
+      <li>
+        <code>.gap-*</code>, <code>.row-gap-*</code>, and <code
+          >.column-gap-*</code
+        >
+      </li>
+      <li>
+        <code>.order-first</code>, <code>.order-0</code> through <code
+          >.order-5</code
+        >, and <code>.order-last</code>
+      </li>
+    </ul>
+    <h3>Grid classes</h3>
+    <ul>
+      <li>
+        Containers: <code>.wrapper</code>, <code>.container-fluid</code>, and
+        <code>.container</code>
+      </li>
+      <li>
+        Rows and columns: <code>.row</code>, <code>.col-xs-12</code>, <code
+          >.col-md-6</code
+        >, and offsets
+      </li>
+      <li>
+        Responsive alignment: <code>.start-md</code>, <code>.center-lg</code>,
+        <code>.middle-sm</code>, <code>.between-md</code>
+      </li>
+    </ul>
+    <Code code={gridExample} lang="html" />
+    <p>
+      Breakpoints are <code>xs</code> by default, then <code>sm</code> at 48em,
+      <code>md</code> at 62em, and <code>lg</code> at 75em.
+    </p>
+  </section>
+
+  <section id="recommended-patterns">
+    <h2>Recommended patterns</h2>
+    <h3>For a new site</h3>
+    <ol>
+      <li>Start with <code>@include lib.aeraline();</code>.</li>
+      <li>
+        Set your font stack, base size, and accent color with <code>
+          with (...)</code
+        >.
+      </li>
+      <li>
+        Add <code>aeraline-flexbox-utilities()</code> only if you need layout helpers.
+      </li>
+      <li>
+        Add <code>aeraline-flexbox-grid()</code> only if the project needs a grid
+        system.
+      </li>
+    </ol>
+    <h3>For an existing design system</h3>
+    <ol>
+      <li>
+        Use <code>aeraline-base()</code> to establish tokens and reset behavior.
+      </li>
+      <li>
+        Layer in headings, semantic elements, forms, and buttons incrementally.
+      </li>
+      <li>
+        Override tokens at the component or page level rather than forking the
+        library.
+      </li>
+    </ol>
+    <p>
+      The library is intentionally small. The goal is to give you a coherent
+      typographic and layout baseline, not to replace the rest of your design
+      system.
+    </p>
+  </section>
+</Layout>
+
+<style>
+  .attn {
+    font-size: var(--font-size-md);
+  }
+</style>

@@ -39,7 +39,7 @@ $font-weight-heading-bold: 700 !default;
 
 $font-family-monospace: "Andale Mono", monospace !default;
 
-$accent-base: #4c00ff !default;
+$accent-base: #002fa7 !default;
 $accent-inverse: func.contrast-color($accent-base) !default;
 $accent-hover: color.adjust($accent-base, $lightness: -10%) !default;
 

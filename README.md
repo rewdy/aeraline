@@ -15,9 +15,6 @@ A lightweight, golden ratio-based CSS typography and layout library built with S
 
 ## Installation
 
-> [!WARNING]
-> This library is not yet published. It is currently only a work-in-progress. You will not be able to install.
-
 ```bash
 npm install @rewdy/aeraline
 # or
